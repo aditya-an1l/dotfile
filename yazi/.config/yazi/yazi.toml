@@ -1,0 +1,7 @@
+[opener]
+pdf = [
+    { run = 'sioyek "$@"', block = true, desc = "Open with Sioyek" },
+]
+
+[mgr]
+show_hidden = true
