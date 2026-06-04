@@ -1,4 +1,7 @@
 <div align="center">
+  <img src="./media/logo.png" width="250" height="250" alt="Logo">
+</div>
+<div align="center">
   <h1>Dotfiles</h1>
   <p>Personal configuration files for my Arch Linux setup.</p>
 </div>
