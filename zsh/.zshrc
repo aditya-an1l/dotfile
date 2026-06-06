@@ -101,3 +101,4 @@ setopt appendhistory
 
 
 eval "$(zoxide init zsh)"
+export QT_STYLE_OVERRIDE=Fusion
