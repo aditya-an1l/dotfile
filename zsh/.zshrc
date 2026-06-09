@@ -88,6 +88,9 @@ tmux_startup() {
   fi
 }
 
+mkc() {
+    mkdir -p "$1" && cd "$1"
+}
 
 tmux_startup
 
@@ -102,3 +105,6 @@ setopt appendhistory
 
 eval "$(zoxide init zsh)"
 export QT_STYLE_OVERRIDE=Fusion
+
+# opencode
+export PATH=/home/aditya_an1l/.opencode/bin:$PATH
