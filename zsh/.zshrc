@@ -33,6 +33,8 @@ alias lla='ls -la'
 alias lt='ls --tree'
 alias yy='yazi .'
 alias lg="lazygit"
+alias cls="clear"
+alias start="thunar"
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
