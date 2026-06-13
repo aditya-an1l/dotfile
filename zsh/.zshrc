@@ -106,7 +106,6 @@ setopt appendhistory
 
 
 eval "$(zoxide init zsh)"
-export QT_STYLE_OVERRIDE=Fusion
 
 # opencode
 export PATH=/home/aditya_an1l/.opencode/bin:$PATH
