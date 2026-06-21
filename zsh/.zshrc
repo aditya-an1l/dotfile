@@ -35,6 +35,9 @@ alias yy='yazi .'
 alias lg="lazygit"
 alias cls="clear"
 alias start="thunar"
+alias cftunnel='start_tunnel'
+
+
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
@@ -89,6 +92,32 @@ tmux_startup() {
     
   fi
 }
+
+start_tunnel() {
+    echo "Starting Cloudflare Tunnel..."
+    rm -f ~/cf_tunnel.log
+
+    cloudflared tunnel --url ssh://localhost:22 --protocol http2 > ~/cf_tunnel.log 2>&1 &
+
+    echo "Waiting for Cloudflare to generate your secure link..."
+
+    for i in {1..15}; do
+        sleep 1
+        TUNNEL_URL=$(grep -oE 'https://[a-z\-]+\.trycloudflare\.com' ~/cf_tunnel.log | head -n 1)
+        if [ ! -z "$TUNNEL_URL" ]; then
+            break
+        fi
+    done
+
+    if [ -z "$TUNNEL_URL" ]; then
+        echo -e "\n[!] Error: Tunnel took too long to start or was blocked. Check log using: cat ~/cf_tunnel.log\n"
+    else
+        echo -e "\n========================================"
+        echo "YOUR LINK IS: $TUNNEL_URL"
+        echo "========================================\n"
+    fi
+}
+
 
 mkc() {
     mkdir -p "$1" && cd "$1"
