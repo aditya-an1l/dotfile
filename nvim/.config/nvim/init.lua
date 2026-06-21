@@ -6,3 +6,4 @@ require("config.lazy")
 -- vim.opt.expandtab = true
 
 vim.g.markdown_fenced_languages = { "javascript", "typescript", "bash", "lua", "go", "rust", "c", "cpp", "python3" }
+vim.opt.clipboard = "unnamedplus"
