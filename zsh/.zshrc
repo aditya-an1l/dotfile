@@ -36,7 +36,7 @@ alias lg="lazygit"
 alias cls="clear"
 alias start="thunar"
 alias cftunnel='start_tunnel'
-
+alias aider-local='OPENAI_API_KEY="lm-studio" aider --openai-api-base http://localhost:1234/v1 --model openai/qwen2.5-coder-7b --no-show-model-warnings'
 
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
@@ -97,7 +97,7 @@ start_tunnel() {
     echo "Starting Cloudflare Tunnel..."
     rm -f ~/cf_tunnel.log
 
-    cloudflared tunnel --url ssh://localhost:22 --protocol http2 > ~/cf_tunnel.log 2>&1 &
+    cloudflared tunnel --url tcp://localhost:22 --protocol http2 > ~/cf_tunnel.log 2>&1 &
 
     echo "Waiting for Cloudflare to generate your secure link..."
 
@@ -138,3 +138,13 @@ eval "$(zoxide init zsh)"
 
 # opencode
 export PATH=/home/aditya_an1l/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/aditya_an1l/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/aditya_an1l/.lmstudio/bin"
+# End of LM Studio CLI section
+
