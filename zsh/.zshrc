@@ -123,6 +123,18 @@ mkc() {
     mkdir -p "$1" && cd "$1"
 }
 
+rtunnel() {
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "[-] Error: Missing inputs."
+        echo "Usage: rtunnel <ip> <pem_file>"
+        return 1
+    fi
+
+    echo "[*] Launching reverse tunnel to $1..."
+    sudo ssh -N -f -R 2222:localhost:22 ubuntu@"$1" -i "$2"
+    echo "[+] Tunnel is running in the background!"
+}
+
 tmux_startup
 
 unset -f tmux_startup
